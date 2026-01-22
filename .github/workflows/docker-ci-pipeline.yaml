@@ -20,7 +20,9 @@ jobs:
         run: docker ps
         
       - name: Check the Output
-        run: curl http://localhost:8080
+        run: 
+         sleep 5
+         curl http://localhost:8080
         
       - name: Docker Login
         uses: docker/login-action@v3.6.0
