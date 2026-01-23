@@ -56,6 +56,7 @@ jobs:
 
       - name: apply-yaml
         run: |
+         kubectl apply -f k8s/ns.yaml
          kubectl apply -f k8s/.
          kubectl config set-context --current --namespace=python-app
          kubectl wait --for=condition=ready pod -l app=janani,environment=production
@@ -68,6 +69,6 @@ jobs:
       - name: Test service URLs
         run: |
           minikube service list
-          minikube service my-service-1 --url
+          minikube service my-service-1 -n python-app --url
           echo -n "------------------opening the service------------------"
-          curl -f $(minikube service my-service-1 --url)
+          curl -f $(minikube service my-service-1 -n python-app --url)
