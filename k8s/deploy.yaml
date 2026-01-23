@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-janani
+  namespace: python-app
+  labels:
+    environment: production
+    app: janani
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      environment: production
+      app: janani
+  template:
+    metadata:
+      labels:
+        environment: production
+        app: janani
+    spec:
+      containers:
+      - name: janani
+        image: janani29/helloworld-demo-python:v1
+        ports:
+        - containerPort: 8080
