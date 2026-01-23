@@ -73,11 +73,3 @@ jobs:
           minikube service my-service-1 --url
           echo -n "------------------opening the service------------------"
           curl -f $(minikube service my-service-1 --url)
-      
-          
-     
-     
-
-   
-      
-   
