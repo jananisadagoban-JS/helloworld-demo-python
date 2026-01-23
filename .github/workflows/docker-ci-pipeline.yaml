@@ -3,9 +3,7 @@ on:
  push:
   branches: 
     - main
-  paths: 
-    - 'app.py'
-    - 'requirements.txt'
+
 jobs:
   docker-ci-job:
     runs-on: ubuntu-latest
